@@ -84,3 +84,4 @@ __pycache__/
 media/
 
 staticfiles/
+/identifier.sqlite
