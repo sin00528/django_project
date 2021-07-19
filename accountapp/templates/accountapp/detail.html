@@ -10,18 +10,22 @@
         <div>
             {{ target_user.date_joined }}
         </div>
-        <div>
-            {#            psk 고유값을 넣어 줘야함#}
-            <a href="{% url 'accountapp:update' pk=target_user.pk  %}">
-                Update Info
-            </a>
-        </div>
-        <div>
-            {#            pk 고유값을 넣어 줘야함#}
-            <a href="{% url 'accountapp:delete' pk=target_user.pk  %}">
-                Quit
-            </a>
-        </div>
+
+        {%  if user == target_user %}
+            <div>
+                {#            psk 고유값을 넣어 줘야함#}
+                <a href="{% url 'accountapp:update' pk=target_user.pk  %}">
+                    Update Info
+                </a>
+            </div>
+            <div>
+                {#            pk 고유값을 넣어 줘야함#}
+                <a href="{% url 'accountapp:delete' pk=target_user.pk  %}">
+                    Quit
+                </a>
+            </div>
+        {% endif %}
+
     </div>
 
 
