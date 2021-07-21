@@ -29,7 +29,7 @@ def hello_world(request):
                           context={'data_list': data_list})
 
     else:
-        HttpResponseRedirect(reverse('accountapp:login'))
+        return HttpResponseRedirect(reverse('accountapp:login'))
 
 
 class AccountCreateView(CreateView):
@@ -59,7 +59,7 @@ class AccountUpdateView(UpdateView):
 
     def post(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return super().get(request, *args, **kwargs)
+            return super().post(request, *args, **kwargs)
         else:
             return HttpResponseForbidden()
 
@@ -78,7 +78,7 @@ class AccountDeleteView(DeleteView):
 
     def post(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return super().get(request, *args, **kwargs)
+            return super().post(request, *args, **kwargs)
         else:
             return HttpResponseForbidden()
 
