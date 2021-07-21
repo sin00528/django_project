@@ -38,18 +38,6 @@ class AccountCreateView(CreateView):
     success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'accountapp/create.html'
 
-    def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return super().get(request, *args, **kwargs)
-        else:
-            return HttpResponseRedirect(reverse('accountapp:login'))
-
-    def post(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return super().get(request, *args, **kwargs)
-        else:
-            return HttpResponseRedirect(reverse('accountapp:login'))
-
 class AccountDetailView(DetailView):
     model = User
     context_object_name = 'target_user'
